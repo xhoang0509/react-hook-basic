@@ -13,6 +13,10 @@ const App = () => {
     const year = 2021;
 
     const handleClick = () => {
+        if (!todo) {
+            alert("Empty input");
+            return;
+        }
         setTodos([...todos, todo]);
         setTodo("");
         inputRef.current.focus();
@@ -23,9 +27,11 @@ const App = () => {
     const handleChangeName = () => {
         setName("Nguyen Xuan Hoang");
     };
-    useEffect(() => {
-        console.log(name);
-    }, [name]);
+    const handleDeleteItem = (index) => {
+        todos.splice(index, 1);
+        setTodos([...todos]);
+    };
+
     return (
         <div className="App">
             <Nav />
@@ -39,13 +45,20 @@ const App = () => {
                     type="text"
                     onChange={(e) => handleChange(e)}
                     value={todo}
+                    id="input-todo"
                 />
                 <button onClick={handleClick}>Click me</button>
                 <div>
                     <h3>Todos list: </h3>
                     <ul>
                         {todos.map((todo, index) => (
-                            <li key={index}>{todo}</li>
+                            <li key={index}>
+                                {todo}
+                                <span onClick={() => handleDeleteItem(index)}>
+                                    {" "}
+                                    &times;
+                                </span>
+                            </li>
                         ))}
                     </ul>
                 </div>
