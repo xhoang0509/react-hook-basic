@@ -1,15 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-function App() {
+const App = () => {
     return (
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <h1>Hello React App, I'm Xuan Hoang</h1>
+                <h2>Hello React App, I'm Xuan Hoang</h2>
             </header>
         </div>
     );
-}
+};
 
 export default App;
