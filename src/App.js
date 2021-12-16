@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -9,7 +9,7 @@ const App = () => {
     const [todos, setTodos] = useState([]);
 
     const inputRef = useRef();
-    const name = "Xuan Hoang";
+    const [name, setName] = useState("Xuan Hoang");
     const year = 2021;
 
     const handleClick = () => {
@@ -20,6 +20,12 @@ const App = () => {
     const handleChange = (e) => {
         setTodo(e.target.value);
     };
+    const handleChangeName = () => {
+        setName("Nguyen Xuan Hoang");
+    };
+    useEffect(() => {
+        console.log(name);
+    }, [name]);
     return (
         <div className="App">
             <Nav />
@@ -43,6 +49,8 @@ const App = () => {
                         ))}
                     </ul>
                 </div>
+                <br />
+                <button onClick={handleChangeName}>Change</button>
             </header>
         </div>
     );
