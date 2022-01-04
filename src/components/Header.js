@@ -1,31 +1,15 @@
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import "./Header.scss";
 const Header = () => {
     const location = useLocation();
     const currentUrl = location.pathname;
     return (
         <div className="topnav">
-            <Link to="/" className={currentUrl === "/" ? "active" : ""}>
-                Todos
-            </Link>
-            <Link
-                to="/covid19"
-                className={currentUrl === "/covid19" ? "active" : ""}
-            >
-                Covid19
-            </Link>
-            <Link
-                to="/contact"
-                className={currentUrl === "/contact" ? "active" : ""}
-            >
-                Contact
-            </Link>
-            <Link
-                to="/about"
-                className={currentUrl === "/about" ? "active" : ""}
-            >
-                About
-            </Link>
+            <NavLink to="/">Todos</NavLink>
+            <NavLink to="/covid19">Covid19</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/about">About</NavLink>
         </div>
     );
 };

@@ -1,0 +1,16 @@
+.back {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.title-detail {
+    text-transform: uppercase;
+    &:hover {
+        color: #a8a82d;
+    }
+    transition: all 0.2s ease-in-out;
+}
